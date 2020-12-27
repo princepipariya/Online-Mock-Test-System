@@ -1,0 +1,51 @@
+﻿@model MockTest.Models.Questions
+
+@{ ViewData["Title"] = "Index"; }
+
+<div class="text-center">
+    <h3 class="display-4">Please Choose Subject and Diffficulty!</h3>
+</div>
+
+<hr />
+<div class="row">
+            <div class="col-md-4">
+                <form asp-action="Exam">
+                    <table>
+                        <tr>
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Subject" class="control-label"></label>
+                                <select asp-for="Subject" class="form-control">
+                                    <option>AA</option>
+                                    <option>OS</option>
+                                    <option>AT</option>
+                                    <option>WDDN</option>
+                                    <option>MFP</option>
+                                </select>
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="form-group">
+                                <label asp-for="Difficulty" class="control-label"></label>
+                                <select asp-for="Difficulty" class="form-control">
+                                    <option>Easy</option>
+                                    <option>Medium</option>
+                                    <option>Hard</option>
+                                </select>
+                                <span asp-validation-for="Difficulty" class="text-danger"></span>
+                            </div>
+                        </tr>
+                        <tr colspan="1">
+                            <div class="form-group">
+                                <input type="submit" value="Submit" class="btn btn-primary" />
+                            </div>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

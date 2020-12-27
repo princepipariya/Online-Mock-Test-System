@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MockTest.Models.Score>
+
+@{ ViewData["Title"] = "Score"; }
+<center>
+    <h1>View Score</h1>
+
+    <p>
+        <a asp-action="Add">Add Question</a> | <a asp-action="Delete">Delete Question</a>
+    </p>
+</center>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Difficulty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mark)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Difficulty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mark)
+            </td>
+        </tr>}
+    </tbody>
+</table>

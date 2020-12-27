@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MockTest.Models.Questions>
+
+@{ ViewData["Title"] = "Delete"; }
+<center>
+    <h1>Delete Question</h1>
+
+    <p>
+        <a asp-action="Add">Add Question</a> | <a asp-action="Score">View Score</a>
+    </p>
+</center>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Difficulty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Question)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OptionA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OptionB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OptionC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OptionD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Answer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+         {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Difficulty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Question)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OptionA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OptionB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OptionC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OptionD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Answer)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.Question_Id })
+                </td>
+            </tr>
+         }
+    </tbody>
+</table>

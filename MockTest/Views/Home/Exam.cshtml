@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using MockTest.Areas.Identity.Data
+@inject UserManager<MockTestUser> UserManager
+@inject SignInManager<MockTestUser> SignInManager
+<h1 style="text-align:center;">Exam</h1>
+@model IEnumerable<MockTest.Models.Questions>
+@{
+    ViewData["Title"] = "Exams";
+}
+
+<form asp-action="Marks">
+
+    @{ var i = 0;}
+    @foreach (var item in Model)
+    {
+
+        if (i == 0)
+        {
+            <h4>Subject:&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.Subject)</h4>
+            <h4>Difficulty:&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.Difficulty)</h4>
+            <input checked="checked" name="subject" type="radio" value="@item.Subject" hidden />
+            <input checked="checked" name="difficulty" type="radio" value="@item.Difficulty" hidden />
+            <input checked="checked" name="username" type="radio" value="@UserManager.GetUserName(User)" hidden />
+        }
+        i++;
+        <div class="card bg-info text-white">
+            <div class="card-header">@i. @Html.DisplayFor(modelItem => item.Question)</div>
+            <div class="card-body bg-light" style="color:black;">
+                <input name="@string.Concat("useranswer",i)" type="radio" value="@item.OptionA" />&nbsp;&nbsp;@item.OptionA <br>
+                <input name="@string.Concat("useranswer",i)" type="radio" value="@item.OptionB" />&nbsp;&nbsp;@item.OptionB <br>
+                <input name="@string.Concat("useranswer",i)" type="radio" value="@item.OptionC" />&nbsp;&nbsp;@item.OptionC <br>
+                <input name="@string.Concat("useranswer",i)" type="radio" value="@item.OptionD" />&nbsp;&nbsp;@item.OptionD <br>
+                <input checked="checked" name="@string.Concat("question",i)" type="radio" value="@item.Question" hidden>
+                <input checked="checked" name="@string.Concat("answer",i)" type="radio" value="@item.Answer" hidden>
+            </div>
+        </div>
+        <br />
+    }
+    <div style="text-align:center;">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+</form>

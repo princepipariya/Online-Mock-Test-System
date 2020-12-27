@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewData["Title"] = "AboutUs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@*@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}*@
+    </style>
+</head>
+<body>
+
+    <div class="about-section">
+        <h1>Online Mock Test</h1><br />
+        <p>To familiarize with the examination process so that on the d-day you are not un prepared</p>
+    </div>
+    <br /><br /><br />
+    <h2 style="text-align:center"><u><b>Our Team</b></u></h2>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h4>Prince Pipariya</h4>
+                    <p class="title">Project Designer & Manager</p>
+                    <p>College: Dharmsinh Desai University</p>
+                    <p>Branch: Computer Engineering</p>
+                    <p>Contact: princeppipariya24@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h4>Param Patel</h4>
+                    <p class="title">Project Designer & Manager</p>
+                    <p>College: Dharmsinh Desai University</p>
+                    <p>Branch: Computer Engineering</p>
+                    <p>Contact: paramben10@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

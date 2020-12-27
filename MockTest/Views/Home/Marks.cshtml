@@ -1,0 +1,27 @@
+﻿@{ ViewData["Title"] = "Marks"; }
+
+<h1>Congratulation!</h1>
+<br />
+<h4>
+    Your Marks is : @ViewBag.marks Out of 5
+</h4>
+<br />
+
+@{
+    int i = 1;
+    for (i = 1; i < 6; i++)
+    {
+        if (ViewBag.tempcorrect[i] != null)
+        {
+    <div class="alert alert-danger">
+        <strong>@ViewBag.question[i]</strong><br />
+        @ViewBag.tempcorrect[i]<br />
+        @ViewBag.tempuser[i]<br />
+    </div> 
+        }
+    } 
+}
+
+<p>
+    <a asp-action="Index">Whant to give exam again?</a>
+</p>

@@ -1,0 +1,118 @@
+﻿@model MockTest.Models.Questions
+
+@{ ViewData["Title"] = "Add"; }
+<center>
+    <h1>Add Question</h1>
+
+    <p>
+        <a asp-action="Delete">Delete Question</a> | <a asp-action="Score">View Score</a>
+    </p>
+</center>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Add">
+            <center>
+                <table>
+                    <tr>
+                        <td>
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Subject" class="control-label"></label>
+                                <select asp-for="Subject" class="form-control">
+                                    <option>AA</option>
+                                    <option>OS</option>
+                                    <option>AT</option>
+                                    <option>WDDN</option>
+                                    <option>MFP</option>
+                                </select>
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label asp-for="Difficulty" class="control-label"></label>
+                                <select asp-for="Difficulty" class="form-control">
+                                    <option>Easy</option>
+                                    <option>Medium</option>
+                                    <option>Hard</option>
+                                </select>
+                                <span asp-validation-for="Difficulty" class="text-danger"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="form-group">
+                                <label asp-for="Question" class="control-label"></label>
+                                <input asp-for="Question" class="form-control" />
+                                <span asp-validation-for="Question" class="text-danger"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label asp-for="OptionA" class="control-label"></label>
+                                <input asp-for="OptionA" class="form-control" />
+                                <span asp-validation-for="OptionA" class="text-danger"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label asp-for="OptionB" class="control-label"></label>
+                                <input asp-for="OptionB" class="form-control" />
+                                <span asp-validation-for="OptionB" class="text-danger"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label asp-for="OptionC" class="control-label"></label>
+                                <input asp-for="OptionC" class="form-control" />
+                                <span asp-validation-for="OptionC" class="text-danger"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label asp-for="OptionD" class="control-label"></label>
+                                <input asp-for="OptionD" class="form-control" />
+                                <span asp-validation-for="OptionD" class="text-danger"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="form-group">
+                                <label asp-for="Answer" class="control-label"></label>
+                                <input asp-for="Answer" class="form-control" />
+                                <span asp-validation-for="Answer" class="text-danger"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="form-group">
+                                <input type="submit" value="Add Question" class="btn btn-primary form-control" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            @{if (ViewBag.msg != null)
+                                {
+                                    <div class="alert alert-success">
+                                        <center>@ViewBag.msg</center>
+                                    </div> } }
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
